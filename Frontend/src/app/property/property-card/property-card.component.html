@@ -1,16 +1,14 @@
-<div class="contanier">
-  <div class="row">
-    <div class="shadow-lg col-sm-4 p-3">
-      <div class="card">
-        <img class="propimage" src="assets/images/house.jpg">
-        <div class="card-body p-2">
-          <h2>{{MyCardProperty.Name}}</h2>
-          <h3>{{MyCardProperty.Type}}</h3>
-          <h3>{{MyCardProperty.Price}}</h3>
-        </div>
-      </div>
-    </div>
-    <div class="col">2</div>
-    <div class="col">3</div>
+<div class="card">
+  <div class="card-img-wrapper">
+    <img class="card-img-top" src="assets/images/house.jpg">
+    <ul class="list-inline text-center member-icons animate">
+      <li class="list-inline-item"><button class="btn btn-primary"><a routerLink="/property-details/{{acceptingProperty.Id}}" style="color: aliceblue;">Edit</a></button></li>
+      <li class="list-inline-item"><button class="btn btn-primary">Contacts</button></li>
+    </ul>
+  </div>
+  <div class="card-body p-2">
+    <h2>{{acceptingProperty.Name}}</h2>
+    <h3>{{acceptingProperty.Type}}</h3>
+    <h3>{{acceptingProperty.Price}}</h3>
   </div>
 </div>
