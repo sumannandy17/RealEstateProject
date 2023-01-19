@@ -2,23 +2,39 @@
   "Id" : 1,
   "Name" : "RajBhawan",
   "Type" : "House",
-  "Price" : 24000
+  "BuySell" : 1,
+  "Price" : 24000,
+  "Image" : "h1"
 },
 {
   "Id" : 2,
   "Name" : "Raj1Bhawan",
   "Type" : "House",
-  "Price" : 24000
+  "BuySell" : 1,
+  "Price" : 24000,
+  "Image" : "h2"
 },
 {
   "Id" : 3,
   "Name" : "Raj2Bhawan",
   "Type" : "House",
-  "Price" : 24000
+  "BuySell" : 2,
+  "Price" : 24000,
+  "Image" : "h3"
 },
 {
   "Id" : 4,
   "Name" : "Raj3Bhawan",
   "Type" : "House",
-  "Price" : 24000
+  "BuySell" : 2,
+  "Price" : 24000,
+  "Image" : "h4"
+},
+{
+  "Id" : 5,
+  "Name" : "Raj4Bhawan",
+  "Type" : "House",
+  "BuySell" : 1,
+  "Price" : 24000,
+  "Image" : ""
 }]

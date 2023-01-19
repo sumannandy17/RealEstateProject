@@ -1,5 +1,33 @@
-<p>
-  add-property works!
-</p>
-<!--(click) is basically an event binding. but default html elements use on as prefix like onClick="", but in angular event binding, we do not use on -->
-<button class="btn btn-primary" (click)="onClickBack()">BACK</button>
+<!--Template Driven Form-->
+<!--#Form, #propName are template variables that can be assigned some data-->
+<div class="card">
+  <div class="card-header">
+    Add Data
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="myFormSubmit(form)" #form="ngForm">
+      <div class="form-group col-12">
+        <label for="Name">Name</label>
+        <input name="Name" type="text" ngModel class="form-control" #propName="ngModel" required minlength="5">
+        <span *ngIf="propName.invalid && propName.touched" class="error-block">
+          <span *ngIf="propName.errors.required">Please provide Name</span>
+          <span *ngIf="propName.errors.minlength">Please provide minimum of 5 Characters</span>
+        </span>
+      </div>
+      <div class="form-group col-12">
+        <label for="Type">Type</label>
+        <input name="Type" type="text" ngModel class="form-control" required #propType="ngModel">
+        <span *ngIf="propType.invalid && propType.touched" class="error-block">Please provide Type</span>
+      </div>
+      <div class="form-group col-12">
+        <label for="Price">Price</label>
+        <input name="Price" type="number" ngModel class="form-control" required #propPrice="ngModel">
+        <span *ngIf="propPrice.invalid && propPrice.touched" class="error-block">Please provide Price</span>
+      </div>
+      <div class="form-group col-12">
+        <button  type="submit" class="btn btn-primary mt-2">Submit</button>
+        <button type="reset" class="btn btn-secondary ms-2 mt-2">Reset</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -11,12 +11,12 @@ export class EstateService {
 
   constructor(private myHttp:HttpClient) { }
 
-  dataEstate(): Observable<IPropertyinterface[]>{
+  dataEstate(rentSell : number): Observable<IPropertyinterface[]>{
     return this.myHttp.get("data/sampledata.json").pipe(
       map(data => {
         const myProperties : Array<IPropertyinterface> = []
         for(let id in data){
-          if(data.hasOwnProperty(id)){
+          if(data.hasOwnProperty(id) && data[id].BuySell === rentSell){
           myProperties.push(data[id])
           }
         }

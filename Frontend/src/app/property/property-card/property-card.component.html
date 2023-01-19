@@ -1,6 +1,7 @@
 <div class="card">
   <div class="card-img-wrapper">
-    <img class="card-img-top" src="assets/images/house.jpg">
+    <img *ngIf="acceptingProperty.Image" class="card-img-top" src="assets/images/{{acceptingProperty.Image}}.jpg">
+    <img *ngIf="!acceptingProperty.Image" class="card-img-top" src="assets/images/house.jpg">
     <ul class="list-inline text-center member-icons animate">
       <li class="list-inline-item"><button class="btn btn-primary"><a routerLink="/property-details/{{acceptingProperty.Id}}" style="color: aliceblue;">Edit</a></button></li>
       <li class="list-inline-item"><button class="btn btn-primary">Contacts</button></li>

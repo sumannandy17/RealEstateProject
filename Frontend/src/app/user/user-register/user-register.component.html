@@ -1,0 +1,62 @@
+<!--Reacive Forms approach-->
+<!--Reactive form approach is better than Template driven approach, even though template driven may look easy.-->
+<div class="row">
+  <div class="col-6 m-auto">
+    <div class="card m-auto">
+      <div class="card-header">
+        User Registration
+      </div>
+      <div class="card-body">
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+          <div class="form-group col-12">
+            <label class="form-label" for="Name">Name</label>
+            <input class="form-control" name="Name" type="text" formControlName="userName">
+           <!-- <span *ngIf="registrationForm.get('userName').invalid && registrationForm.get('userName').touched" class="error-block">
+              please provide name!
+            </span> -->
+            <span *ngIf="userName.invalid && (userName.touched || userSubmitted)" class="error-block">
+              <span *ngIf="userName.errors.required">Provide Your Name!</span>
+              <span *ngIf="userName.errors.minlength">minimum Length should be 4 characters</span>
+            </span>
+          </div>
+          <div class="form-group col-12">
+            <label class="form-label" for="Email">Email</label>
+            <input class="form-control" name="Email" type="text" formControlName="userEmail">
+            <span *ngIf="userEmail.invalid && (userEmail.touched || userSubmitted)" class="error-block">
+              <span *ngIf="userEmail.errors.required">Provide your Email!</span>
+              <span *ngIf="userEmail.errors.email">Incorrect Email Address</span>
+            </span>
+          </div>
+          <div class="form-group col-12">
+            <label class="form-label" for="Password">Password</label>
+            <input class="form-control" name="Password" type="password" formControlName="userPassword">
+            <span *ngIf="userPassword.invalid && (userPassword.touched || userSubmitted)" class="error-block">
+              <span *ngIf="userPassword.errors.required">Provide Your Password!</span>
+              <span *ngIf="userPassword.errors.minlength">minimum Length should be 8 characters</span>
+            </span>
+          </div>
+          <div class="form-group col-12">
+            <label class="form-label" for="CPassword">Confrim Password</label>
+            <input class="form-control" name="CPassword" type="password" formControlName="userCPassword">
+            <span *ngIf="userCPassword.invalid && (userCPassword.touched || userSubmitted)" class="error-block">
+              <span *ngIf="userCPassword.errors.required">Retype Your Password!</span>
+            </span>
+            <span *ngIf="registrationForm.hasError('notmatched') && userCPassword.valid">Password mismatch</span>
+          </div>
+          <div class="form-group col-12">
+            <label class="form-label" for="Mobile">Mobile</label>
+            <input class="form-control" name="Mobile" type="tel" formControlName="userMobile">
+            <span *ngIf="userMobile.invalid && (userMobile.touched || userSubmitted)" class="error-block">
+              <span *ngIf="userMobile.errors.required">Provide Contact Number</span>
+              <span *ngIf="userMobile.errors.pattern">Enter 10 Digit Mobile Number</span>
+            </span>
+          </div>
+          <div class="form-group col-12">
+            <button type="submit" class="btn btn-primary mt-2">Save</button>
+            <button type="reset" class="btn btn-secondary ms-2 mt-2">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+/*This css is component level, so that it can be used throughout the application.*/
+.ng-valid{
+  border-color: green;
+}
+.ng-invalid.ng-touched{
+  border-color: red;
+}
+
+.error-block{
+  color: red;
+}
+
+/*Thier is a huge difference between .ng-invalid.ng-touched and .ng-invalid .ng-touched, a space in between means they are seperate
+classes and will work independently, will give individual results. but when they are joined together, they become one condition,
+will work only when both conditions holds true.*/
