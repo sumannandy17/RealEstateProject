@@ -37,4 +37,12 @@
   "BuySell" : 1,
   "Price" : 24000,
   "Image" : ""
+},
+{
+  "Id" : 6,
+  "Name" : "Raj6Bhawan",
+  "Type" : "House",
+  "BuySell" : 1,
+  "Price" : 24000,
+  "Image" : ""
 }]

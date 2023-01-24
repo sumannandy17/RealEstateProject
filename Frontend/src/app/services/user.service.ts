@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {User} from '../model/user.interface';
 
 @Injectable({
   providedIn : 'root'
@@ -6,7 +7,7 @@ import {Injectable} from '@angular/core';
 
 export class UserService{
 
-  addingUsers(user){
+  addingUsers(user : User){
     let users = [];
     if(localStorage.getItem('user')){
       users = JSON.parse(localStorage.getItem('user'));

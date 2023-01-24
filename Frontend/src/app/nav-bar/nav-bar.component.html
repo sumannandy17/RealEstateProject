@@ -17,8 +17,19 @@
         </li>
       </ul>
       <ul class="nav navbar-nav">
-        <li><a class="nav-link" routerLinkActive="active" routerLink="/user-login">login</a></li>
-        <li><a class="nav-link" routerLink="active" routerLink="/user-register">Register</a></li>
+        <li *ngIf="!loggedIn()"><a class="nav-link" routerLinkActive="active" routerLink="/user-login">login</a></li>
+        <li *ngIf="!loggedIn()"><a class="nav-link" routerLink="active" routerLink="/user-register">Register</a></li>
+        <!--<li *ngIf="loggedIn()" class="nav-link">Welcome {{loggedinUser}}</li> -->
+        <!--<li *ngIf="loggedIn()"><a class="nav-link" routerLink="active" (click)="Logout()">Logout</a></li>-->
+        <li *ngIf="loggedIn()" class="dropdown mr-5" dropdown>
+          <a href="#" class="dropdown-toggle text-light" dropdownToggle (click)="false">Welcome {{loggedinUser}}</a>
+          <div class="dropdown-menu" *dropdownMenu>
+            <a href="#" class="dropdown-item">View Dashboard</a>
+            <a href="#" class="dropdown-item">My Profile</a>
+            <a href="#" class="dropdown-item">Change Password</a>
+            <a href="#" class="dropdown-item" (click)="Logout()">Logout</a>
+          </div>
+        </li>
         </ul>
     </div>
   </div>

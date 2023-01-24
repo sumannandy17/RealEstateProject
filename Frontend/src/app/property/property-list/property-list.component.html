@@ -1,7 +1,10 @@
 <div class="contanier">
   <div class="row">
-    <div class="shadow-lg col-sm-4 p-3" *ngFor="let property of MyCardProperty">
-      <app-property-card [acceptingProperty]=property></app-property-card>
+    <!--app-property-card component contains html to generate only 1 single card, here we are iterating through the list of data
+    and keep on passing the data with each iteration to property-card component to generate multiple cards
+    suppose their are 4 card details are present, 4 cards will be generatd in runtime -->
+    <div class="col-sm-3 p-3" *ngFor="let property of MyCardProperty">
+      <app-property-card [acceptingProperty]=property [acceptingButtonFlag]="buttonDisplayFlag"></app-property-card>
     </div>
   </div>
 </div>

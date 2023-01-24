@@ -1,0 +1,40 @@
+#1) bootstrap can be added in two ways
+
+1) The normal basic bootstrap that is available
+Steps:
+a)in terminal of angular applicaton
+npm install bootstrap
+
+b) in angular.json file :
+"scripts": [
+    "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+    ],
+
+"styles": [
+    "styles.css",
+    "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    ],
+
+#2) using ngx-bootstrap
+Steps:
+
+a) in terminal of angular application
+npm install ngx-bootstrap --save
+
+b) go to https://valor-software.com/ngx-bootstrap/#/components and select the component you want to user
+we choose dropdown
+
+go to app.module.ts and add below lines, they are avaliable in the website under api tab.
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
+@NgModule({
+  imports: [
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot()
+  ]
+})
+
+c) now you can choose any html from website under overview and paste in your code and use.

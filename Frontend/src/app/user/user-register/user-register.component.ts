@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { User } from 'src/app/model/user.interface';
+import { AlertyfyService } from 'src/app/services/Alertyfy.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,10 +11,10 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserRegisterComponent implements OnInit {
 
-  constructor(private fb : FormBuilder, private user : UserService ) { }
+  constructor(private fb : FormBuilder, private user : UserService, private alerty : AlertyfyService ) { }
 
   registrationForm : FormGroup;
-  myUser : any = {};
+  myUser : User ;
   userSubmitted : boolean;
 
   ngOnInit(): void {
@@ -73,12 +75,28 @@ export class UserRegisterComponent implements OnInit {
       this.userSubmitted = true;
 
     if(this.registrationForm.valid){
-      this.myUser = Object.assign(this.myUser,this.registrationForm.value)
-      this.user.addingUsers(this.myUser);
+
+      //this.myUser = Object.assign(this.myUser,this.registrationForm.value)
+      this.user.addingUsers(this.userData());
       this.registrationForm.reset();
       this.userSubmitted = false;
+      this.alerty.success('Successfully Saved');
+    }
+    else{
+      this.alerty.error('kindly recheck!');
     }
   }
 
+  // userData() is of type User interface. Will work fine even without  : User, but we should mention the return type
+  userData() : User{
+    //We are actually model binding the data from the form to the model in this method.
+    return this.myUser = {
+      name : this.userName.value,
+      email : this.userEmail.value,
+      password : this.userPassword.value,
+      mobile : this.userMobile.value
+    }
+
+  }
 
 }

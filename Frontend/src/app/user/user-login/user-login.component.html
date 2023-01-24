@@ -1,1 +1,25 @@
-<p>user-login works!</p>
+<div class="row">
+  <div class="col-6 m-auto">
+    <div class="card m-auto">
+      <div class="card-header">
+        <h5>Login</h5>
+      </div>
+      <div class="card-body">
+        <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+          <div class="form-group col-12">
+            <label for="uname">User Name</label>
+            <input name="uname" type="text" class="form-control" ngModel required>
+          </div>
+          <div class="form-group col-12">
+            <label for="upass">Passowrd</label>
+            <input name="upass" type="password" class="form-control" ngModel required>
+          </div>
+          <div class="form-group col-12">
+            <button [disabled]="!myForm.valid" type="submit" class="btn btn-primary mt-2">Submit</button>
+            <button type="button" class="btn btn-secondary mt-2 ms-2">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

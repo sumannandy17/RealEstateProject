@@ -10,6 +10,27 @@
   color: red;
 }
 
+/*We are defining style hirarchy to target the specific tag. Here we are specifying that this style to be applied to a
+label of button-group having the specific tag*/
+.btn-group > label[ng-reflect-btn-radio]{
+  border-radius: 44px;
+  padding: 0 16;
+  line-height: 15px;
+}
+
+.card-header > h5{
+  margin-bottom: 0rem;
+  color : white;
+}
+
+.card-header{
+  background-color: darkgreen;
+}
+
+.card{
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
 /*Thier is a huge difference between .ng-invalid.ng-touched and .ng-invalid .ng-touched, a space in between means they are seperate
 classes and will work independently, will give individual results. but when they are joined together, they become one condition,
 will work only when both conditions holds true.*/
