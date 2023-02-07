@@ -7,9 +7,19 @@
       <li class="list-inline-item"><button class="btn btn-primary">Contacts</button></li>
     </ul>
   </div>
-  <div class="card-body p-2">
-    <h2>{{acceptingProperty.Name}}</h2>
-    <h3>{{acceptingProperty.Type}}</h3>
-    <h3>{{acceptingProperty.Price}}</h3>
+  <div class="card-body p-1">
+    <h2 class="mb-0"> {{acceptingProperty.BHK}} BHK {{acceptingProperty.PType}} </h2>
+
+    in {{acceptingProperty.Name}}
+    <span *ngIf="acceptingProperty.Name">,</span>
+    {{acceptingProperty.City}}
+
+    <h6  class="mt-2">{{acceptingProperty.FType}}
+    <span *ngIf="acceptingProperty.FType !== 'Unfurnished'">Furnished</span> | Ready to Move</h6>
+
+    <hr class="mt-0 mb-2">
+
+    <h6 class="mb-0">Price: <span class="price_area">{{acceptingProperty.Price}} USD.</span> |
+      Area:  <span class="price_area">{{acceptingProperty.BuiltArea}} Sq Ft </span> </h6>
   </div>
 </div>
