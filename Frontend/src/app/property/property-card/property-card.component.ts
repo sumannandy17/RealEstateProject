@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IPropertyinterface } from '../../model/property.interface';
+import { IPropertyBaseInterface } from '../../model/propertyBase.interface';
 
 @Component({
   selector : 'app-property-card',
@@ -9,7 +9,7 @@ import { IPropertyinterface } from '../../model/property.interface';
 })
 export class PropertyCardComponent{
 
-  @Input() acceptingProperty : IPropertyinterface;
+  @Input() acceptingProperty : IPropertyBaseInterface;
   @Input() acceptingButtonFlag : boolean;
 
 
