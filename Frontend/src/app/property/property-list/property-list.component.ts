@@ -32,7 +32,7 @@ export class PropertyListComponent implements OnInit {
       this.rentSell = 2;
     }
 
-    this.myEstate.dataEstate(this.rentSell).subscribe(
+    /*this.myEstate.dataEstate(this.rentSell).subscribe(
       myEstate =>{
         if(localStorage.getItem('property')){
           const filteredArray :  Array<IPropertyBaseInterface> = [];
@@ -52,7 +52,13 @@ export class PropertyListComponent implements OnInit {
       error =>{
         console.log(error)
       }
-    );
+    );*/
+      this.myEstate.dataEstate(this.rentSell).subscribe(
+        data => {
+          this.MyCardProperty = data;
+        }
+      )
+
   }
   MyCardProperty : Array<IPropertyBaseInterface>;
 }

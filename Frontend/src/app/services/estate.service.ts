@@ -12,13 +12,42 @@ export class EstateService {
 
   constructor(private myHttp:HttpClient) { }
 
-  dataEstate(rentSell : number): Observable<IPropertyBaseInterface[]>{
+  fetchbyIDforEdit(id : number){
+    return this.dataEstate().pipe(
+      map(
+        data => {
+           //throw new Error('Not working');
+          return data.find(p => p.Id === id)
+        }
+      )
+    )
+  }
+
+  dataEstate(rentSell? : number): Observable<Property[]>{
     return this.myHttp.get("data/sampledata.json").pipe(
       map(data => {
-        const myProperties : Array<IPropertyBaseInterface> = []
+        const myProperties : Array<Property> = []
+        const fromWebLStorage = JSON.parse(localStorage.getItem('property'));
+        if(fromWebLStorage){
+          for(let webID in fromWebLStorage){
+            if(rentSell){
+              if(fromWebLStorage.hasOwnProperty(webID) && fromWebLStorage[webID].SellRent === rentSell){
+                myProperties.push(fromWebLStorage[webID])
+              }
+            }
+            else{
+              myProperties.push(fromWebLStorage[webID])
+            }
+          }
+        }
         for(let id in data){
-          if(data.hasOwnProperty(id) && data[id].SellRent === rentSell){
-          myProperties.push(data[id])
+          if(rentSell){
+            if(data.hasOwnProperty(id) && data[id].SellRent === rentSell){
+              myProperties.push(data[id])
+              }
+          }
+          else{
+            myProperties.push(data[id])
           }
         }
         return myProperties;
@@ -42,6 +71,17 @@ export class EstateService {
       existingProperties = [newProperties]
     }
     localStorage.setItem('property', JSON.stringify(existingProperties))
+  }
+
+  propertyId(){
+    if(localStorage.getItem('PID')){
+      localStorage.setItem('PID', String(+localStorage.getItem('PID') + 1))
+      return +localStorage.getItem('PID');
+    }else{
+      localStorage.setItem('PID', '101');
+      return 101;
+    }
+
   }
 
 }

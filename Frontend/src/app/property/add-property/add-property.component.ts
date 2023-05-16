@@ -237,6 +237,7 @@ export class AddPropertyComponent implements OnInit {
   mapFormData(): void{
     //Could have directlt accessed the value from the main addPropertyReactiveForm proprty and bound it just like below code instead of binding the getter methods.
     //this.addPropetyFields.Price = this.addPropertyReactiveForm.controls.Price.value;
+    this.addPropetyFields.Id = this.estate.propertyId();
     this.addPropetyFields.SellRent = +this.mySellRent.value;
     this.addPropetyFields.BHK = this.myHouseBHK.value;
     this.addPropetyFields.PType = this.myPType.value;

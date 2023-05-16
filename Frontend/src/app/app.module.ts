@@ -22,12 +22,15 @@ import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { componentFactoryName } from '@angular/compiler';
 import { AuthService } from './services/auth.service';
+import { PropertyDetailResolverService } from './property/property-details/property-detail-resolver.service';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 const myRoutes : Routes = [
   {path : '', component : PropertyListComponent},
   {path : 'rent-property', component : PropertyListComponent},
   {path : 'add-property', component : AddPropertyComponent},
-  {path : 'property-details/:id', component : PropertyDetailsComponent},
+  {path : 'property-details/:id', component : PropertyDetailsComponent,
+          resolve : {prp : PropertyDetailResolverService}},
   {path : 'user-login', component : UserLoginComponent},
   {path : 'user-register', component : UserRegisterComponent},
   {path : '**', component : PropertyListComponent}
@@ -55,6 +58,7 @@ const myRoutes : Routes = [
     TabsModule.forRoot(),
     ButtonsModule.forRoot(),
     BsDatepickerModule.forRoot(),
+    NgxGalleryModule
   ],
   providers: [EstateService,UserService,AlertyfyService,AuthService],
   bootstrap: [AppComponent]
