@@ -1,4 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { Component, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
@@ -48,7 +47,6 @@ const myRoutes : Routes = [
     UserRegisterComponent,
    ],
   imports: [
-    BrowserModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
