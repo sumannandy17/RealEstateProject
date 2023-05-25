@@ -22,7 +22,7 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
 import { componentFactoryName } from '@angular/compiler';
 import { AuthService } from './services/auth.service';
 import { PropertyDetailResolverService } from './property/property-details/property-detail-resolver.service';
-import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { NgxGalleryModule } from 'ngx-gallery-9';
 
 const myRoutes : Routes = [
   {path : '', component : PropertyListComponent},
@@ -50,7 +50,7 @@ const myRoutes : Routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(myRoutes),
+    RouterModule.forRoot(myRoutes, { relativeLinkResolution: 'legacy' }),
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
