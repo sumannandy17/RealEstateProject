@@ -1,9 +1,35 @@
 <div class="contanier">
+  <div class="row" style="font-family: cursive;">
+    <div class="col-sm-6">
+      <div>
+        <label name="searchlabel" style="border-style: solid;padding-left: 4px;padding-right: 4px;">City</label>
+        <input name="searchKey" [(ngModel)]="search" type="text">
+        <button name="searchbtn" (click)="onCitySearch()">Search</button>
+        <button name="reset" (click)="onCityReset()">Reset</button>
+      </div>
+    </div>
+    <div class="col-sm-6">
+        <div>
+          <label style="padding-right: 3px;">Sort By</label>
+          <select name="sort" [(ngModel)]="sortFilter">
+            <option value="City">City</option>
+            <option value="BHK">BHK</option>
+            <option value="Price">Price</option>
+          </select>
+          <label style="padding-left: 4%;padding-right: 3px;">Sort Order</label>
+          <select name="stype" [(ngModel)]="sortType">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+        </div>
+    </div>
+  </div>
   <div class="row">
     <!--app-property-card component contains html to generate only 1 single card, here we are iterating through the list of data
     and keep on passing the data with each iteration to property-card component to generate multiple cards
     suppose their are 4 card details are present, 4 cards will be generatd in runtime -->
-    <div class="col-sm-3 p-3" *ngFor="let property of MyCardProperty">
+    <!--<div *ngFor="let i of testArray|searchFilter:'Raj':'Name'">{{i.Name}}</div> -->
+    <div class="col-sm-3 p-3" *ngFor="let property of MyCardProperty|searchFilter:sCity:'City'|sortFilter:[sortFilter,sortType]">
       <app-property-card [acceptingProperty]=property [acceptingButtonFlag]="buttonDisplayFlag"></app-property-card>
     </div>
   </div>

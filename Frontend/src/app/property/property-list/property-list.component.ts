@@ -11,12 +11,36 @@ import { ActivatedRoute } from '@angular/router';
 export class PropertyListComponent implements OnInit {
 
   constructor(private myEstate: EstateService, private route : ActivatedRoute) { }
+  /*testArray = [
+    {
+      'Name':'Suman',
+      'Age':24,
+    },
+    {
+      'Name':'Raj',
+      'Age':27,
+    },
+    {
+      'Name':'Suhani',
+      'Age':29,
+    }
+  ]*/
 
+  //Declaration of MyCardProperty done stating it will be of Array of type IPropertyBaseInterface.
+  MyCardProperty : Array<IPropertyBaseInterface>;
   rentSell = 1;
 
   buttonDisplayFlag : boolean = true;
-
+  search : string = '';
+  sCity : string = '';
+  sortFilter : string;
+  sortType : string;
   ngOnInit(): void {
+    //initializing the MyCardProperty with this empty array is very important else anything that is trying to read its value
+    //will through undefined error.
+    //The custom pipe Cannot read properties of undefined (reading 'length') threw an error.
+    this.MyCardProperty = [];
+
     //here we are manupulating the data and retreiving it based on the flag and then populating this component.
     //Defaut behaviour would be, it will load and show the buy fields data, but if someone clicks on Rent menu,
     //it will show the rent data.
@@ -60,5 +84,11 @@ export class PropertyListComponent implements OnInit {
       )
 
   }
-  MyCardProperty : Array<IPropertyBaseInterface>;
+  onCitySearch(){
+    this.sCity = this.search;
+  }
+  onCityReset(){
+    this.search = '';
+    this.sCity = '';
+  }
 }

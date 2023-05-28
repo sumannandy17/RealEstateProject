@@ -23,6 +23,8 @@ import { componentFactoryName } from '@angular/compiler';
 import { AuthService } from './services/auth.service';
 import { PropertyDetailResolverService } from './property/property-details/property-detail-resolver.service';
 import { NgxGalleryModule } from 'ngx-gallery-9';
+import { SearchFilterPipe } from './pipes/searchFilter.pipe';
+import { SortFilterPipe } from './pipes/sortFilter.pipe';
 
 const myRoutes : Routes = [
   {path : '', component : PropertyListComponent},
@@ -45,6 +47,8 @@ const myRoutes : Routes = [
     PropertyDetailsComponent,
     UserLoginComponent,
     UserRegisterComponent,
+    SearchFilterPipe,
+    SortFilterPipe
    ],
   imports: [
     HttpClientModule,
